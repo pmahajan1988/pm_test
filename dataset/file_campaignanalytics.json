@@ -18,39 +18,6 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "Region",
-				"type": "String"
-			},
-			{
-				"name": "Country",
-				"type": "String"
-			},
-			{
-				"name": "Product_Category",
-				"type": "String"
-			},
-			{
-				"name": "Campaign_Name",
-				"type": "String"
-			},
-			{
-				"name": "Revenue",
-				"type": "String"
-			},
-			{
-				"name": "Revenue_Target",
-				"type": "String"
-			},
-			{
-				"name": "City",
-				"type": "String"
-			},
-			{
-				"name": "State",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
