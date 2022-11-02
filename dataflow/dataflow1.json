@@ -9,7 +9,7 @@
 						"referenceName": "file_campaign",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "sourcefilecampaign"
 				}
 			],
 			"sinks": [
@@ -18,18 +18,18 @@
 						"referenceName": "sql_campaignanalytics",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "sinksqlcampaign"
 				}
 			],
 			"transformations": [
 				{
-					"name": "derivedColumn1"
+					"name": "derivedfilecampaign"
 				},
 				{
-					"name": "select1"
+					"name": "selectfilecampaign"
 				},
 				{
-					"name": "select2"
+					"name": "select2filecampaign"
 				}
 			],
 			"scriptLines": [
@@ -48,10 +48,10 @@
 				"     allowSchemaDrift: false,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     skipLines: 1) ~> source1",
-				"select1 derive(new_Revenue = toDecimal(replace(concat(toString(RevenuePart1), toString(Revenue)), '\\\\', ''), 10, 2, '$###,###.##'),",
-				"          new_RevenueTarget = toDecimal(replace(concat(toString(RevenueTargetPart1), toString(RevenueTarget)), '\\\\', ''), 10, 2, '$###,###.##')) ~> derivedColumn1",
-				"source1 select(mapColumn(",
+				"     skipLines: 1) ~> sourcefilecampaign",
+				"selectfilecampaign derive(new_Revenue = toDecimal(replace(concat(toString(RevenuePart1), toString(Revenue)), '\\\\', ''), 10, 2, '$###,###.##'),",
+				"          new_RevenueTarget = toDecimal(replace(concat(toString(RevenueTargetPart1), toString(RevenueTarget)), '\\\\', ''), 10, 2, '$###,###.##')) ~> derivedfilecampaign",
+				"sourcefilecampaign select(mapColumn(",
 				"          Region = Column_1,",
 				"          Country = Column_2,",
 				"          ProductCategory = Column_3,",
@@ -64,8 +64,8 @@
 				"          State = Column_10",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1",
-				"derivedColumn1 select(mapColumn(",
+				"     skipDuplicateMapOutputs: true) ~> selectfilecampaign",
+				"derivedfilecampaign select(mapColumn(",
 				"          Region,",
 				"          Country,",
 				"          ProductCategory,",
@@ -76,8 +76,8 @@
 				"          State",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select2",
-				"select2 sink(allowSchemaDrift: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2filecampaign",
+				"select2filecampaign sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          Region as string,",
@@ -106,7 +106,7 @@
 				"          RevenueTarget,",
 				"          City,",
 				"          State",
-				"     )) ~> sink1"
+				"     )) ~> sinksqlcampaign"
 			]
 		}
 	}
