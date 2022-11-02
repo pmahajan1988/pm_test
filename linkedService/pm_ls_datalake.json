@@ -1,0 +1,13 @@
+{
+	"name": "pm_ls_datalake",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "pm_ls_datalake",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://pmtrainingdatalakegen2.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEJCOUE0RjI5LUQxNDktNDU1Ni1BMDhELUY2NDhGODVCRTgxMl8xZDU1YTUwZS02M2E1LTRkMDYtOTcxOS0yZGI5YjUyN2VmMmMiDQp9"
+		}
+	}
+}
