@@ -62,10 +62,10 @@
 				"          Country,",
 				"          ProductCategory,",
 				"          CampaignName,",
-				"          City,",
-				"          State,",
 				"          Revenue = new_Revenue,",
-				"          RevenueTarget = new_RevenueTarget",
+				"          RevenueTarget = new_RevenueTarget,",
+				"          City,",
+				"          State",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select2"
