@@ -16,6 +16,9 @@
 			"transformations": [
 				{
 					"name": "derivedColumn1"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -25,9 +28,9 @@
 				"          Column_3 as string,",
 				"          Column_4 as string,",
 				"          Column_5 as string,",
-				"          Column_6 as string,",
+				"          Column_6 as double,",
 				"          Column_7 as string,",
-				"          Column_8 as string,",
+				"          Column_8 as double,",
 				"          Column_9 as string,",
 				"          Column_10 as string",
 				"     ),",
@@ -35,7 +38,21 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     skipLines: 1) ~> source1",
-				"source1 derive() ~> derivedColumn1"
+				"select1 derive() ~> derivedColumn1",
+				"source1 select(mapColumn(",
+				"          Column_1,",
+				"          Column_2,",
+				"          Column_3,",
+				"          Column_4,",
+				"          Column_5,",
+				"          Column_6,",
+				"          Column_7,",
+				"          Column_8,",
+				"          Column_9,",
+				"          Column_10",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}
