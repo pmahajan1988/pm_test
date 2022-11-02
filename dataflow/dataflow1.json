@@ -19,6 +19,9 @@
 				},
 				{
 					"name": "select1"
+				},
+				{
+					"name": "select2"
 				}
 			],
 			"scriptLines": [
@@ -53,7 +56,19 @@
 				"          State = Column_10",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1"
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"derivedColumn1 select(mapColumn(",
+				"          Region,",
+				"          Country,",
+				"          ProductCategory,",
+				"          CampaignName,",
+				"          City,",
+				"          State,",
+				"          Revenue = new_Revenue,",
+				"          RevenueTarget = new_RevenueTarget",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2"
 			]
 		}
 	}
